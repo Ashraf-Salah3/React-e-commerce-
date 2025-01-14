@@ -1,0 +1,112 @@
+.custom-modal {
+    position: absolute;
+    inset: 50% 40px 40px 50%;
+    border: 1px solid var(--section-background);
+    background-image: initial;
+    background-position: initial;
+    background-size: initial;
+    background-repeat: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: var(--main-background);
+    overflow: auto;
+    border-radius: 10px;
+    outline: none;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--color2);
+  }
+  
+  .custom-overlay {
+    position: fixed;
+    inset: 0px;
+    background-color: rgba(0, 0, 0, 0.8)
+  }
+  
+    .color-options {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 2rem;
+  
+      .color-button {
+        padding: 25px;
+        background-size: cover;
+        background-position: center;
+        cursor: pointer;
+        margin: 5px;
+  
+        &.selected {
+          border: 3px solid black;
+        }
+      }
+  
+      h3 {
+        text-align: center;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+    }
+  
+  
+  .size-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 2rem;
+  
+    button {
+        border: 1px solid gray;
+        padding: .7rem 1rem;
+        background-color: var(--section-color);
+        color: var(--black-color);
+        cursor: pointer;
+    }
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    align-items: center;
+    gap: 2rem;
+    
+    .confirm-button,
+    .cancel-button {
+      padding: 0.5rem 1.3rem;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      font-family: var(--font-family);
+      border-radius: 8px;
+  
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  
+    .confirm-button {
+      background-color: var(--main-color);
+      color: white;
+    }
+  
+    .cancel-button {
+      background-color: red;
+      color: white;
+    }
+  }
+  
+  @media screen and (max-width:800px) {
+    .custom-modal{
+    width: 95%;
+    left: 0;
+    right: 0;
+    transform: translate(0, -50%);
+    top: 50%;
+    margin: auto;
+    }
+  }

@@ -1,0 +1,25 @@
+.editeProduct {
+  padding-top: 1rem;
+  .formContainer,
+  .saleFormContainer{
+    box-shadow: var(--main-shadow);
+    background-color: var(--section-background);
+    border-radius: 15px;
+    margin: 1rem;
+
+    form{
+        padding: 1rem;
+    }
+    .formInput {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 1rem;
+    }
+  }
+  .saleFormInput,
+  .scheduledTime{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}

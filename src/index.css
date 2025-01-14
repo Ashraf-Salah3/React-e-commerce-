@@ -1,13 +1,210 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --font-family: 'Cairo', sans-serif;
+  --main-color: #0095ff;
+  --main-background: #f1f1f1;
+  --main-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.03);
+  --section-background:#fff;
+  --section-color: white;
+  --gray-color: #BFBFBF;
+  --color2:black;
+}
+.light{
+  --font-family: 'Cairo', sans-serif;
+  --main-color: #0095ff;
+  --main-background: #f1f1f1;
+  --main-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.03);
+  --section-background:#fff;
+  --section-color: white;
+  --gray-color: #BFBFBF;
+  --color2:black;
+}
+.dark{
+  --font-family: 'Cairo', sans-serif;
+  --main-color: #007acc; 
+  --main-background:#181818 ; 
+  --main-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  --section-background:black;
+  --section-color: #000000;
+  --gray-color: #303030;
+  --color2:white;
+
+}
+::-webkit-scrollbar{
+  display: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: var(--font-family);
+  direction: rtl;
+  text-align: right;
+  overflow-x: hidden;
+  background-color: var(--section-background);
+  position: relative;
+
+}
+html {
+  scroll-behavior: smooth;
+  direction: rtl;
+  text-align: right;
+  overflow-x: hidden;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+}
+p{
+  color: var(--color2);
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+h1 {
+  font-size: 21px;
+  font-weight: 400;
+}
+.--btn {
+  font-weight: 500;
+  padding: 0.5rem;
+  border: 1px solid var(--gray-color);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+  font-size: 0.8rem;
+  background-color: #efefef;
+  font-family: var(--font-family);
+}
+.--btn-small {
+  width: 5rem;
+}
+.--btn-primary {
+  background-color: var(--main-color);
+  color: var(--section-background);
+  
+}
+.--btn-secoundry {
+  background-color: #efefef;
+  border: none;
+}
+.--btn-danger{
+  background-color: red;
+  color: var(--main-background);
+}
+.--input {
+  padding:.7rem 0.4rem;
+  border: 1px solid var(--gray-color);
+  border-radius: 5px;
+  display: block;
+  width: 100%;
+  font-size: 13px;
+}
+
+.--input::placeholder{
+  font-size: 15px;
+  color: #bfbfbf;
+}
+select, select option , input, textarea{
+  font-family: var(--font-family);
+  background-color: var(--main-background);
+  color: var(--color2);
+  max-width: 100%;
+}
+select, select option , input, textarea
+  ,.--input:focus {
+  outline: none;
+
+
+}
+label{
+  color: #bfbfbf;
+
+}
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+.main-header button {
+  gap: 5px;
+  padding-right: 15px;
+}
+label {
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+.--btn-action {
+  display: flex;
+  gap: 8px;
+  justify-content: end;
+  margin-top: 2rem;
+}
+.--add-to-card{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: var( --main-background);
+  color: var(--color2);
+  font-size: 18px;
+  gap: 1rem;
+}
+.--add-to-card img{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: var( --black-color);
+  color: var(--white-color);
+  font-size: 18px;
+  gap: 1rem;
+
+}
+.--add-to-card img{
+  width: 2rem;
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+}
+
+
+/*small*/
+@media(min-width:768px) {
+  .container {
+      width: 750px;
+  }
+}
+
+/*Medium*/
+@media(min-width:991px) {
+  .container {
+      width: 950px;
+  }
+}
+
+/*large*/
+@media(min-width:1200px) {
+  .container {
+      width: 1270px;
+  }
+}
+.css-1dc80h3-MuiTableCell-root{
+  font-family: var(--font-family);
 }

@@ -1,0 +1,30 @@
+.contactbutton{
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 9999;
+    background-color: var(--main-background);
+    padding: 7px 1rem;
+    border-radius: 10px;
+
+    a{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+        svg{
+            color: var(--main-color);
+        }
+        p{
+            margin: 0;
+            color: var(--color2);
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .contactbutton{
+        display: block;
+    }
+}
