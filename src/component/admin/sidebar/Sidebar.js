@@ -8,66 +8,54 @@ const Sidebar = () => {
   return (
     <div className={styles.sidebar}>
       <div className={styles.logo}>
-        <img src={logo} alt="logo" />
+        <img src={logo} alt="الشعار" />
       </div>
       <div className={styles.search}>
-        <img src={search_icon} alt="search" />
-        <input type="text" placeholder="search" />
+        <img src={search_icon} alt="بحث" />
+        <input type="text" placeholder="بحث" />
       </div>
       <div className={styles.list}>
         <ul>
           <li>
             <NavLink to="/admin/products" className={activeLink}>
-              Products
+              المنتجات
             </NavLink>
           </li>
           <li>
             <NavLink to="/admin/categories" className={activeLink}>
-              Categories
+              الفئات
             </NavLink>
           </li>
           <li>
             <NavLink to="/admin/subcategories" className={activeLink}>
-              sub Categories
+              الفئات الفرعية
             </NavLink>
           </li>
           <li>
             <NavLink to="/admin/editproductFeature" className={activeLink}>
-              Edit Product Feature
+              تعديل ميزات المنتج
             </NavLink>
           </li>
           <li>
             <NavLink to="/admin/orders" className={activeLink}>
-              Orders
+              الطلبات
             </NavLink>
           </li>
           <li>
             <NavLink to="/admin/advertising" className={activeLink}>
-              Advertis
+              الإعلانات
             </NavLink>
           </li>
           <li>
             <NavLink to="/admin/register" className={activeLink}>
-              Create Account
+              إنشاء حساب
             </NavLink>
           </li>
           <li>
             <NavLink to="/" className={activeLink}>
-              back To Home
+              العودة إلى الصفحة الرئيسية
             </NavLink>
           </li>
-          {/* <li>
-          <GoListUnordered style={{backgroundColor: "white", color:"black"}}/>
-            <NavLink to="/orders" className={activeLink}>Orders</NavLink>
-          </li>
-          <li>
-            <MdInventory2 />
-            <NavLink to="/inventory" className={activeLink}>Inventory</NavLink>
-          </li>
-          <li>
-            <PiCalendarPlusFill />
-            <NavLink to="/advertising" className={activeLink}>Advertising</NavLink>
-          </li>*/}
         </ul>
       </div>
       <hr></hr>

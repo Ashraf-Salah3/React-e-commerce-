@@ -32,7 +32,7 @@ function Cart() {
       <div className={styles.cartDetails}>
       <div className={styles.cartSummary}>
         <p className={styles.subtotal}>المجموع الكلي  
-          <span>{totalAmt} <img src={priceCart} alt=''/></span>
+          <span>{totalAmt} ج.م </span>
         </p>
         </div>
         <NavLink to={"/checkout"} className={`--btn ${styles.button}`}>

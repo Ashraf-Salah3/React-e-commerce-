@@ -20,14 +20,14 @@ const SubCategoryList = () => {
   return (
     <div>
       <div className="main-header">
-        <h1>Sub Categories</h1>
+        <h1>الأقسام الفرعية</h1>
         <div>
           <button
             className="--btn --btn-primary"
             onClick={() => navigate("/admin/addNewSubCategory")}
           >
             <FaPlus />
-            Add New
+            إضافة جديد
           </button>
         </div>
       </div>
@@ -36,10 +36,10 @@ const SubCategoryList = () => {
           <TableHead className={styles.subhead}>
             <TableRow>
               <TableCell>#</TableCell>
-              <TableCell>Category Name</TableCell>
-              <TableCell>SubCategories</TableCell>
-              <TableCell>Edit sub Category</TableCell>
-              <TableCell>Delete sub Category</TableCell>
+              <TableCell>اسم القسم</TableCell>
+              <TableCell>الأقسام الفرعية</TableCell>
+              <TableCell>تعديل القسم الفرعي</TableCell>
+              <TableCell>حذف القسم الفرعي</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -67,7 +67,7 @@ const SubCategoryList = () => {
                             );
                           }}
                         >
-                          Edit
+                          تعديل
                         </button>
                       );
                     })}
@@ -83,7 +83,7 @@ const SubCategoryList = () => {
                           deleteSubCategory(category.id, subCategory.id)
                         }
                       >
-                        Delete
+                        حذف
                       </button>
                     ))}
                 </TableCell>

@@ -1,10 +1,10 @@
 import axios from "axios";
 
-export const DEV_BASE_URL = "https://rabbit.premiumasp.net";
+export const DEV_BASE_URL = "https://clotheshop.runasp.net";
 
 
 const instance = axios.create({
-  baseURL: DEV_BASE_URL + "/api",
+  baseURL: DEV_BASE_URL + "/api/",
   headers: {
     // "X-Language": strings.getLanguage() === "arabic" ? "ar" : "en",
     "X-device": "web",

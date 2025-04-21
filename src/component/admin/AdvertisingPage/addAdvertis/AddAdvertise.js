@@ -19,7 +19,7 @@ const AddAdvertise = () => {
         },
       });
       
-      toast.success("Advertisment Is Added");
+      toast.success("تمت إضافة الإعلان بنجاح");
       setImage(null)
     } catch (error) {}
   };
@@ -55,8 +55,8 @@ const AddAdvertise = () => {
               <div>
                 <GoUpload/>
                 <h4>
-                  Drag & Drop or <span>Choose file</span> to upload Images
-                  <p>PNG or JPEG</p>
+                اسحب وافلت أو <span>اختر ملفًا</span> لتحميل الصور
+                  <p>PNG أو JPEG</p>
                 </h4>
               </div>
             )}
@@ -64,7 +64,7 @@ const AddAdvertise = () => {
         </label>
       </div>
       <div className="--btn-action">
-        <MainButton value="Save" type="submit" />
+        <MainButton value="حفظ" type="submit" />
       </div>
     </form>
   </div>

@@ -76,7 +76,7 @@ const Favorite = () => {
                           {name.substring(0, 20)}
                         </p>
                         <p className={styles.price}>
-                          {price} <img src={priceCart} alt="" />{" "}
+                          {price}{" "} ج.م
                         </p>
                       </div>
 

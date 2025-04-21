@@ -19,14 +19,14 @@ const AddStory = () => {
         },
       });
       setStoryImg(null)
-      toast.success("Story Is Added");
+      toast.success("تم إضافة القصة");
     } catch (error) {}
   };
 
   return (
     <div className={styles["story-contanier"]}>
         <div className="main-header">
-          <h4>Add Stories</h4>
+          <h4>إضافة قصص</h4>
         </div>
         <form onSubmit={handelStoriesSubmit}>
           <div
@@ -55,8 +55,8 @@ const AddStory = () => {
                   <div>
                     <GoUpload />
                     <h4>
-                      Drag & Drop or <span>Choose file</span> to upload Images
-                      <p>PNG or JPEG</p>
+                    اسحب وأفلت أو <span>اختر ملف</span> لتحميل الصور
+                      <p>PNG أو JPEG</p>
                     </h4>
                   </div>
                 )}
@@ -64,7 +64,7 @@ const AddStory = () => {
             </label>
           </div>
           <div className="--btn-action">
-            <MainButton value="Save" type="submit" />
+            <MainButton value="حفظ" type="submit" />
           </div>
         </form>
       </div>

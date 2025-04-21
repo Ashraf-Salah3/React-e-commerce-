@@ -58,7 +58,7 @@ const Register = () => {
     formDatas.append("Mobile", formData.Mobile);
     formDatas.append("Image", null);
     if (formData.Password !== formData.ConfirmPassword) {
-      toast.error("Passwords do not match");
+      toast.error("كلمات المرور غير متطابقة");
       return;
     }
 
@@ -69,7 +69,7 @@ const Register = () => {
           "Content-Type": "multipart/form-data",
         },
       });
-      toast.success("User created successfully");
+      toast.success("تم إنشاء المستخدم بنجاح");
       fetchUsers();
       setFormData({
         FirstName: "",
@@ -81,7 +81,7 @@ const Register = () => {
         Image: null,
       });
     } catch (error) {
-      toast.error(error?.response?.data?.message || "Registration failed");
+      toast.error(error?.response?.data?.message || "فشل التسجيل");
     } finally {
       setIsSubmitting(false);
     }
@@ -90,7 +90,7 @@ const Register = () => {
   const handelDeletedUser = async (id) => {
     try {
      await instance.delete(`/Account/${id}`);
-      toast.success("user Is Deleted");
+      toast.success("تم حذف المستخدم");
       fetchUsers();
     } catch (error) {
       toast.error(error.message);
@@ -100,23 +100,23 @@ const Register = () => {
   return (
     <div className={styles.register}>
       <div className={styles.auth}>
-        <h2>Create New Account</h2>
+        <h2>إنشاء حساب جديد</h2>
         <form onSubmit={handelFormSubmit}>
           <div className={styles.inputGroup}>
             <InputField
-              label="First Name"
+              label="الاسم الأول"
               id="FirstName"
               type="text"
-              placeholder="Enter First Name"
+              placeholder="أدخل الاسم الأول"
               required
               value={formData.FirstName}
               onchange={handelInputChange}
             />
             <InputField
-              label="Last Name"
+              label="الاسم الأخير"
               id="LastName"
               type="text"
-              placeholder="Enter Last Name"
+              placeholder="أدخل الاسم الأخير"
               required
               value={formData.LastName}
               onchange={handelInputChange}
@@ -124,19 +124,19 @@ const Register = () => {
           </div>
           <div className={styles.inputGroup}>
             <InputField
-              label="Password"
+              label="كلمة المرور"
               id="Password"
               type="password"
-              placeholder="Enter your password"
+              placeholder="أدخل كلمة المرور"
               required
               value={formData.Password}
               onchange={handelInputChange}
             />
             <InputField
-              label="Confirm Password"
+              label="تأكيد كلمة المرور"
               id="ConfirmPassword"
               type="password"
-              placeholder="Confirm Password"
+              placeholder="تأكيد كلمة المرور"
               required
               value={formData.ConfirmPassword}
               onchange={handelInputChange}
@@ -144,20 +144,20 @@ const Register = () => {
           </div>
           <div className={styles.inputGroup}>
             <InputField
-              label="Email Address"
+              label="البريد الإلكتروني"
               id="Email"
               type="email"
-              placeholder="Enter your Email"
+              placeholder="أدخل بريدك الإلكتروني"
               required
               value={formData.Email}
               onchange={handelInputChange}
             />
 
             <InputField
-              label="Mobile"
+              label="رقم الهاتف"
               id="Mobile"
               type="text"
-              placeholder="Enter your Mobile"
+              placeholder="أدخل رقم الهاتف"
               required
               value={formData.Mobile}
               onchange={handelInputChange}
@@ -170,7 +170,7 @@ const Register = () => {
               className="--btn --btn-primary"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Submitting..." : "Create Account"}
+              {isSubmitting ? "جاري الإرسال..." : "إنشاء حساب"}
             </button>
           </div>
         </form>
@@ -182,23 +182,23 @@ const Register = () => {
               <TableRow>
                 <TableCell>#</TableCell>
                 <TableCell>
-                  <div>id</div>
+                  <div>المعرف</div>
                 </TableCell>
                 <TableCell>
                   {" "}
-                  <div>Name</div>
+                  <div>الاسم</div>
                 </TableCell>
                 <TableCell>
                   {" "}
-                  <div>Mobile</div>
+                  <div>رقم الهاتف</div>
                 </TableCell>
                 <TableCell>
                   {" "}
-                  <div>Email</div>
+                  <div>البريد الإلكتروني</div>
                 </TableCell>
                 <TableCell>
                   {" "}
-                  <div>Delete</div>
+                  <div>حذف</div>
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -215,7 +215,7 @@ const Register = () => {
                       className="--btn --btn-danger"
                       onClick={() => handelDeletedUser(user.id)}
                     >
-                      Delete
+                      حذف
                     </button>
                   </TableCell>
                 </TableRow>

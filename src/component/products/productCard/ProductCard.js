@@ -12,7 +12,6 @@ import { FaCartPlus, FaShekelSign } from "react-icons/fa";
 import { toast } from "react-toastify";
 import ProductPopup from "../../ProductPopup/ProductPopup";
 
-
 const ProductCard = React.memo(({ product }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -76,15 +75,11 @@ const ProductCard = React.memo(({ product }) => {
         >
           <p>{product.name.slice(0, 15)}</p>
           <div className={styles.price}>
-            <p className={styles.mainprice}>
-            <FaShekelSign size={14} />
-              {product.price} 
-            </p>
+            <p className={styles.mainprice}>{product.price} ج.م</p>
             {product?.saleDiscount !== null && (
               <p className={styles["sale-price"]}>
-                <FaShekelSign size={14} />
-                {product.price - product?.saleDiscount}
-                
+                {product.price - product?.saleDiscount} {""}
+                ج.م
               </p>
             )}
           </div>

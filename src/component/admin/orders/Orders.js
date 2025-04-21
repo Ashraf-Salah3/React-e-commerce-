@@ -36,7 +36,7 @@ const Orders = () => {
           setTotalPages(Math.ceil(totalItems / filterOrders.PageSize));
         }
       } catch (error) {
-        toast.error("Failed to fetch orders:", error.message);
+        toast.error("فشل في جلب الطلبات:", error.message);
       } finally {
         setLoading(false);
       }
@@ -66,13 +66,13 @@ const Orders = () => {
       const response = await instance.get(`/Order/${id}`);
       navigate(`/admin/orderDetails/${id}`, { state: response.data.data });
     } catch (error) {
-      toast.error("Failed to fetch order details:", error.message);
+      toast.error("فشل في جلب تفاصيل الطلب:", error.message);
     }
   };
   return (
     <div>
       <div className="main-header">
-        <h1>Orders List</h1>
+        <h1>قائمة الطلبات</h1>
       </div>
       <TableContainer component={Paper} className={styles.tableContainer}>
         <Table className="table table-striped table-hover">
@@ -80,12 +80,12 @@ const Orders = () => {
             <TableRow>
               <TableCell> {"   "}#</TableCell>
               <TableCell>OrderId</TableCell>
-              <TableCell>Creation Time</TableCell>
-              <TableCell>Total Amount</TableCell>
-              <TableCell>Client Name</TableCell>
-              <TableCell>Client Phone</TableCell>
-              <TableCell>Status</TableCell>
-              <TableCell>Details</TableCell>
+              <TableCell>وقت الإنشاء</TableCell>
+              <TableCell>المبلغ الإجمالي</TableCell>
+              <TableCell>اسم العميل</TableCell>
+              <TableCell>هاتف العميل</TableCell>
+              <TableCell>الحالة</TableCell>
+              <TableCell>التفاصيل</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -109,7 +109,7 @@ const Orders = () => {
                     className="--btn --btn-primary"
                     onClick={() => handleOrderDetails(order.id)}
                   >
-                    Details
+                    التفاصيل
                   </button>
                 </TableCell>
               </TableRow>

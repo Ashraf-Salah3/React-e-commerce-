@@ -1,9 +1,9 @@
 import { useEffect, useState, useCallback } from "react";
 import styles from "./header.module.scss";
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaCartPlus, FaTimes } from "react-icons/fa";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
-import { Logo, searchHeader } from "../../assets";
+import { logo, searchHeader } from "../../assets";
 import { useDispatch, useSelector } from "react-redux";
 import { useFetchCategories } from "../../context/FetchCategory";
 import { CALCULATE_TOTAL_QUANTITY } from "../../store/cartSlice";
@@ -120,7 +120,7 @@ const Header = () => {
             </div>
             <div className={styles["header-top-item"]}>
               <div className={styles.logo}>
-                <Logo />
+              <img src={logo} alt="logo" className={styles.logoImg}/>
                 <Link to="/cart">
                   <div className={styles.cart} onClick={hideMenu}>
                     <FaCartPlus size={27} />
@@ -184,7 +184,8 @@ const Header = () => {
               <li className={styles["logo-mobile"]}>
                 <FaTimes size={22} onClick={hideMenu} />
                 <div>
-                  <Logo />
+                <img src={logo} alt="logo" className={styles.logoImg}/>
+
                 </div>
               </li>
               <li>

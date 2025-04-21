@@ -39,36 +39,36 @@ const OrdersDetails = () => {
     <div>
       <div className={styles.orderDetails}>
         <div className={styles.clientInfo}>
-          <h3>Client Info</h3>
+          <h3>معلومات العميل</h3>
           <p>
-            <span>ClientName : </span>
+            <span>اسم العميل: </span>
             {order.clientName}
           </p>
           <p>
-            <span> ClientPhone : </span>
+            <span> رقم الهاتف: </span>
             {order.clientPhone}
           </p>
           <p>
-            <span> CreationTime : </span>
+            <span> تاريخ الإنشاء: </span>
             {convertData()}
           </p>
         </div>
         <div className={styles.orderInfo}>
-          <h3>Order Cost</h3>
+          <h3>تكلفة الطلب</h3>
           <p>
-            <span>ShippmentCost : </span>
+            <span>تكلفة الشحن: </span>
             {order.shippmentCost}
           </p>
           <p>
-            <span>TotalItemsCost : </span>
+            <span>إجمالي تكلفة المنتجات: </span>
             {order.totalItemsCost}
           </p>
           <p>
-            <span>TotalAmount : </span>
+            <span>إجمالي المبلغ: </span>
             {order.totalAmount}
           </p>
           <p>
-            <span>TrackingNumber : </span>
+            <span>رقم التتبع:  </span>
             {order.trackingNumber}
           </p>
         </div>
@@ -88,13 +88,13 @@ const OrdersDetails = () => {
         <Table className="table table-striped table-hover">
           <TableHead className={styles.subhead}>
             <TableRow>
-              <TableCell>Image</TableCell>
-              <TableCell>Product ID</TableCell>
-              <TableCell>Product Name</TableCell>
-              <TableCell>Quantity</TableCell>
-              <TableCell>Size</TableCell>
-              <TableCell>Color</TableCell>
-              <TableCell>Total Price</TableCell>
+              <TableCell>الصورة</TableCell>
+              <TableCell>رقم المنتج</TableCell>
+              <TableCell>اسم المنتج</TableCell>
+              <TableCell>الكمية</TableCell>
+              <TableCell>المقاس</TableCell>
+              <TableCell>اللون</TableCell>
+              <TableCell>السعر الإجمالي</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

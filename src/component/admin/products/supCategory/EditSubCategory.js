@@ -26,21 +26,21 @@ const EditSubCategory = () => {
   };
   return (
     <div>
-      <h1>Edit SubCategory</h1>
+      <h1>تعديل الفئة الفرعية</h1>
       <input
         className="--input"
         type="text"
         value={newSubCategoryName}
         onChange={(e) => setNewSubCategoryName(e.target.value)}
-        placeholder="New SubCategory Name"
+        placeholder="اسم الفئة الفرعية الجديدة"
       />
       <div className="--btn-action">
         <MainButton
-          value="Cancel"
+          value="إلغاء"
           onClick={() => navigate("/admin/subCategories")}
         />
         <MainButton
-          value="Save"
+          value="حفظ"
           type="submit"
           onClick={handleUpdateSubCategory}
         />

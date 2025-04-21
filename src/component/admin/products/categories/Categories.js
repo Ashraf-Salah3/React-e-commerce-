@@ -23,11 +23,11 @@ const Categories = () => {
   return (
     <div>
           <div className="main-header">
-        <h1>Categories</h1>
+        <h1>الفئات</h1>
         <div>
           <button className="--btn --btn-primary" onClick={()=>navigate("/admin/addNewCategory")}>
             <FaPlus />
-            Add New
+            إضافة جديد
           </button>
         </div>
       </div>
@@ -39,22 +39,22 @@ const Categories = () => {
               <TableCell>
                 {" "}
                 <div>
-                  Name 
+                  الاسم 
                 </div>
               </TableCell>
               <TableCell>
                 <div>
-                  Id 
+                  الرقم 
                 </div>
               </TableCell>
               <TableCell>
                 <div>
-                Edit Category 
+                تعديل الفئة 
                 </div>
               </TableCell>
               <TableCell>
                 <div>
-                  Delete Category
+                  حذف الفئة
                 </div>
               </TableCell>
               </TableRow>
@@ -65,8 +65,8 @@ const Categories = () => {
                 <TableCell>{index + 1}</TableCell>
                 <TableCell>{category.name}</TableCell>
                 <TableCell>{category.id}</TableCell>
-                <TableCell  className={styles.edit}><button className="--btn --btn-primary"  onClick={() => navigate(`/admin/categories/edit/${category.id}`)}>Edit</button></TableCell>
-                <TableCell className={styles.delete}><button className="--btn --btn-danger" onClick={()=> handleDelete(category.id)}>Delete</button></TableCell>
+                <TableCell  className={styles.edit}><button className="--btn --btn-primary"  onClick={() => navigate(`/admin/categories/edit/${category.id}`)}>تعديل</button></TableCell>
+                <TableCell className={styles.delete}><button className="--btn --btn-danger" onClick={()=> handleDelete(category.id)}>حذف</button></TableCell>
                 </TableRow>))}
                 </TableBody>
               </Table>
@@ -75,4 +75,4 @@ const Categories = () => {
   )
 }
 
-export default Categories
+export default Categories;

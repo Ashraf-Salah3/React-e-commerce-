@@ -9,7 +9,6 @@ const Products = () => {
   return (
     <div className={styles.productPage}>
       <ProductList/>
-
     </div>
   );
 };

@@ -6,21 +6,18 @@ import { useNavigate, useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 
 const SearchResult = () => {
-  const { setProductFilter, products, productFilter } = useProducts();
+  const { setProductFilter, products } = useProducts();
   const { searchText } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!searchText || searchText.trim().length === 0) {
-      // إذا كان حقل البحث فارغًا، قم بتصفية المنتجات إلى قائمة فارغة
       setProductFilter((prevFilter) => ({
         ...prevFilter,
         SearchName: null,
       }));
       return;
     }
-
-    // إذا كان هناك نص في حقل البحث، قم بتحديث الفلتر بناءً على النص
     setProductFilter((prevFilter) => ({
       ...prevFilter,
       SearchName: searchText.trim(),

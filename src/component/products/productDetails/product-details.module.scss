@@ -16,10 +16,13 @@
   .details {
     display: flex;
     flex-wrap: nowrap;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--color2);
+    gap: 5rem;
+    flex-basis: 70%;
+    margin-bottom: 3rem;
     .image {
       display: flex;
       flex-direction: column;
@@ -32,7 +35,6 @@
     .photo-slider {
       position: relative;
       width: 100%;
-      max-width: 300px;
       height: 400px;
       margin: 0 auto;
       overflow: hidden;
@@ -99,6 +101,7 @@
       flex-direction: column;
       display: flex;
       gap: .5rem;
+      flex-basis: 30%;
 
       p{
         font-size: 25px;
@@ -228,6 +231,7 @@
       align-items: center;
       
     .measurmentImg {
+      width: 10rem;
       img {
         max-width: 100%;
       }
@@ -288,6 +292,11 @@
     .details {
       display: flex;
       flex-direction: column;
+      gap: 1rem;
+
+      .description{
+        flex-basis: 100% !important;
+      }
       .image {
         .thumbnail-gallery {
           max-width: 100%;
@@ -301,6 +310,7 @@
           }
         }
       }
+   
       .dimentions{
         margin-top: 1rem;
         margin-bottom: 1rem;

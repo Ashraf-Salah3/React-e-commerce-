@@ -35,25 +35,26 @@ const Checkout = () => {
     const fetchCities = async () => {
       try {
         const response = await instance.get(
-          "/Shipping/cities"
+          "Shipping/local-cities"
         );
-        setTowns(response.data[0].data || []);
+        setTowns(response.data);
       } catch (error) {
       }
     };
     fetchCities();
   }, []);
+  console.log(towns)
 
   const handleTownChange = async (e) => {
     const { value } = e.target;
     setSelectedTown(value);
     try {
       const response = await instance.get(
-        `/Shipping/areas/${value}`
+        `Shipping/local/city/${value}`
       );
 
       if (response.status === 200) {
-        setVillages(response.data[0].data || []);
+        setVillages(response.data.citiesAndVillages);
 
      
       } else {
@@ -106,30 +107,30 @@ const Checkout = () => {
             />
             <div>
               <InputField
-                label="المدينة"
+                label="المحافظة"
                 id="towns"
                 type="select"
                 options={[
-                  { value: "", label: "اختر المدينة" },
+                  { value: "", label: "اختر المحافظة" },
                   ...towns.map((town) => ({
                     value: town.id,
-                    label: town.name,
+                    label: town.nameInArabic,
                   })),
                 ]}
                 onchange={(e) => handleTownChange(e)}
                 value={selectedTown}
               />
               <InputField
-                label="القرية"
+                label="المدينة"
                 id="villages"
                 type="select"
                 options={
                   selectedTown
                     ? [
-                        { value: "", label: "اختر القرية" },
+                        { value: "", label: "اختر المدينة" },
                         ...villages.map((village) => ({
                           value: village.id,
-                          label: village.name,
+                          label: village.nameInArabic,
                         })),
                       ]
                     : [{ value: "", label: "الرجاء اختيار المدينة أولاً" }]

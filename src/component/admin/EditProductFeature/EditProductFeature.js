@@ -51,7 +51,7 @@ const EditProductFeature = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!selectedProduct || !color || !coverImg) {
-      toast.error("Please fill in all required fields.");
+      toast.error("Pيرجى ملء جميع الحقول المطلوبة.");
       return;
     }
 
@@ -69,9 +69,9 @@ const EditProductFeature = () => {
         },
       });
       getProductColor(selectedProduct); // Fetch colors again after submitting
-      toast.success("Product feature updated successfully!");
+      toast.success("تم تحديث ميزة المنتج بنجاح!");
     } catch (error) {
-      toast.error(`Error updating product feature: ${error.message}`);
+      toast.error(`خطأ في تحديث ميزة المنتج: ${error.message}`);
     }
   };
 
@@ -80,7 +80,7 @@ const EditProductFeature = () => {
       <div className={styles["edit-product"]}>
         {/* Header Section */}
         <div className="main-header">
-          <h1>Add Product Color</h1>
+          <h1>إضافة لون للمنتج</h1>
         </div>
 
         {/* Form Section */}
@@ -88,11 +88,11 @@ const EditProductFeature = () => {
           <div className={styles["product-info"]}>
             <div className={styles.getProduct}>
               <InputField
-                label="Category"
+                label="الفئة"
                 id="CategoryId"
                 type="select"
                 options={[
-                  { value: "", label: "Choose a category" },
+                  { value: "", label: "اختر فئة" },
                   ...categories?.map((category) => ({
                     value: category.id,
                     label: category.name,
@@ -102,19 +102,19 @@ const EditProductFeature = () => {
                 onchange={handleCategoryChange}
               />
               <InputField
-                label="Product"
+                label="المنتج"
                 id="products"
                 type="select"
                 options={
                   selectedCategory
                     ? [
-                        { value: "", label: "Choose a product" },
+                        { value: "", label: "اختر منتج" },
                         ...products?.map((product) => ({
                           value: product.id,
                           label: product.name,
                         })),
                       ]
-                    : [{ value: "", label: "Please Choose Category" }]
+                    : [{ value: "", label: "يرجى اختيار فئة" }]
                 }
                 value={selectedProduct}
                 onchange={handleProductChange}
@@ -124,7 +124,7 @@ const EditProductFeature = () => {
           <form onSubmit={handleSubmit}>
             <div className={styles.colors}>
               <InputField
-                label="Colors"
+                label="الألوان"
                 id="Colors"
                 type="select"
                 options={
@@ -177,8 +177,7 @@ const EditProductFeature = () => {
                         <div>
                           <GoUpload />
                           <h4>
-                            Drag & Drop or <span>Choose file</span> to upload
-                            Image Cover
+                          اسحب وأفلت أو <span>اختر ملف</span> لتحميل صورة الغلاف
                           </h4>
                         </div>
                       )}
@@ -189,7 +188,7 @@ const EditProductFeature = () => {
             </div>
             {/* Action Buttons */}
             <div className="--btn-action">
-              <MainButton value="Save" type="submit" />
+              <MainButton value="حفظ" type="submit" />
             </div>
           </form>
         </div>

@@ -7,10 +7,9 @@ import Categories from '../../component/admin/products/categories/Categories';
 import AddProducts from '../../component/admin/products/addProduct/AddProducts';
 import EditPublishedProduct from '../../component/admin/products/editProduct/EditPublishedProduct';
 import AdvertisingPage from '../../component/admin/AdvertisingPage/AdvertisingPage';
-import { useEffect, useState } from 'react';
+import { useEffect, } from 'react';
 import { useNavigate } from 'react-router-dom';
 import EditCategory from '../../component/admin/products/categories/editeCategory/EditCategory';
-
 import AddNewCategories from '../../component/admin/products/categories/AddNewCategories';
 import SubCategoryList from '../../component/admin/products/supCategory/SubCategoryList';
 import EditSubCategory from '../../component/admin/products/supCategory/EditSubCategory';

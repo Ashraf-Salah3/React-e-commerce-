@@ -28,19 +28,19 @@ const EditCategory = () => {
 
   return (
     <div>
-      <h1>Edit Category</h1>
+      <h1>تعديل الفئة</h1>
       <input
-        label="Change Category"
+        label="تغيير الفئة"
         type="text"
         className="--input"
         value={categoryName}
         onChange={(e) => setCategoryName(e.target.value)}
-        placeholder="Enter category name"
+        placeholder="أدخل اسم الفئة"
       />
       <div className="--btn-action">
-        <MainButton value="Cancel" onClick={() => navigate("/admin/categories")} />
+        <MainButton value="إلغاء" onClick={() => navigate("/admin/categories")} />
         <MainButton 
-          value="Save" 
+          value="حفظ" 
           onClick={handleSave} 
           type="submit" 
           disabled={categoryName.trim() === originalName || !categoryName.trim()}

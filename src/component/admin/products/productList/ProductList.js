@@ -26,7 +26,7 @@ const ProductList = () => {
       const res = await instance.delete(`/Product/${id}`);
       if (res) {
         setProducts(products.filter((item) => item.id !== id));
-        toast.success(`product is deleted`);
+        toast.success(`تم حذف المنتج`);
       }
     } catch (error) {
       toast.error(error.message);
@@ -37,18 +37,18 @@ const ProductList = () => {
   };
   const exportPDF = () => {
     const doc = new jsPDF();
-    doc.text("Products List", 14, 10);
+    doc.text("قائمة المنتجات", 14, 10);
     const tableColumn = [
       "#",
-      "Name",
-      "Description",
-      "Size",
-      "Price",
-      "Color",
-      "Quantity",
-      "Date",
-      "Time",
-      "Status",
+      "الاسم",
+      "الوصف",
+      "الحجم",
+      "السعر",
+      "اللون",
+      "الكمية",
+      "التاريخ",
+      "الوقت",
+      "الحالة",
     ];
     const tableRows = [];
     products.forEach((product, index) => {
@@ -71,7 +71,7 @@ const ProductList = () => {
       body: tableRows,
       startY: 20,
     });
-    doc.save("Products_List.pdf");
+    doc.save("قائمة_المنتجات.pdf");
   };
 
   const fetchProduct = (isActive) => {
@@ -80,7 +80,7 @@ const ProductList = () => {
       .then((res) => {
         setProducts(res?.data?.data.items);
         setActiveTab(
-          isActive === true ? "Published Products" : "Scheduled Products"
+          isActive === true ? "المنتجات المنشورة" : "المنتجات المجدولة"
         );
       })
       .catch((error) => {
@@ -94,22 +94,22 @@ const ProductList = () => {
   return (
     <div className={styles.productList}>
       <div className={styles.header}>
-        <h1>Products List</h1>
+        <h1>قائمة المنتجات</h1>
 
         <div className={styles.actions}>
           <button onClick={() => navegate("/admin/newProduct")}>
-            create New Product
+            إنشاء منتج جديد
           </button>
 
           <button onClick={exportPDF}>
-            <img src={exportIcon} alt="" /> Export
+            <img src={exportIcon} alt="" /> تصدير
           </button>
           {/*<button
             onClick={() => {
               filterHandler("blue");
             }}
           >
-            <img src={filterIcon} alt="" /> Filter
+            <img src={filterIcon} alt="" /> تصفية
           </button>*/}
         </div>
       </div>
@@ -117,16 +117,16 @@ const ProductList = () => {
       <TableContainer component={Paper} className={styles.tableContainer}>
         <div className={styles.tabs}>
           <h4
-            className={activeTab === "Published Products" ? styles.active : ""}
+            className={activeTab === "المنتجات المنشورة" ? styles.active : ""}
             onClick={() => fetchProduct(true)}
           >
-            Published Products
+            المنتجات المنشورة
           </h4>
           <h4
-            className={activeTab === "Scheduled Products" ? styles.active : ""}
+            className={activeTab === "المنتجات المجدولة" ? styles.active : ""}
             onClick={() => fetchProduct(false)}
           >
-            Scheduled Products
+            المنتجات المجدولة
           </h4>
         </div>
         <Table className="table table-striped table-hover">
@@ -134,37 +134,37 @@ const ProductList = () => {
             <TableRow>
               <TableCell>#</TableCell>
               <TableCell>
-                <div>Image Cover</div>
+                <div>صورة الغلاف</div>
               </TableCell>
               <TableCell>
                 {" "}
                 <div>
-                  Name <img src={asyndingIcon} alt="" />
+                  الاسم <img src={asyndingIcon} alt="" />
                 </div>
               </TableCell>
 
               <TableCell>
                 <div>
-                  Description <img src={asyndingIcon} alt="" />
+                  الوصف <img src={asyndingIcon} alt="" />
                 </div>
               </TableCell>
 
               <TableCell>
                 <div>
                   {" "}
-                  Date <img src={asyndingIcon} alt="" />
+                  التاريخ <img src={asyndingIcon} alt="" />
                 </div>
               </TableCell>
               <TableCell>
                 <div>
-                  Price <img src={asyndingIcon} alt="" />
+                  السعر <img src={asyndingIcon} alt="" />
                 </div>
               </TableCell>
-                {/*{activeTab === "Scheduled Products" && (
+                {/*{activeTab === "المنتجات المجدولة" && (
               <TableCell>
                   <div>
                     {" "}
-                    Time <img src={asyndingIcon} alt="" />
+                    الوقت <img src={asyndingIcon} alt="" />
                   </div>
                 </TableCell>
               )}*/}
@@ -181,21 +181,21 @@ const ProductList = () => {
                 <TableCell>{product.description}</TableCell>
                 <TableCell>{product.scheduleDate}</TableCell>
                 <TableCell>{product.price}</TableCell>
-                {/*{activeTab === "Scheduled Products" && (
+                {/*{activeTab === "المنتجات المجدولة" && (
                   <TableCell>{}</TableCell>
                 )}*/}
                 <TableCell
                   onClick={() => editProductHandel(product)}
                   className={styles.edit}
                 >
-                  <button className="--btn --btn-primary">Edit</button>
+                  <button className="--btn --btn-primary">تعديل</button>
                 </TableCell>
                 <TableCell className={styles.delete}>
                   <button
                     className="--btn --btn-danger"
                     onClick={() => deleteProductHandel(product.id)}
                   >
-                    Delete
+                    حذف
                   </button>
                 </TableCell>
               </TableRow>

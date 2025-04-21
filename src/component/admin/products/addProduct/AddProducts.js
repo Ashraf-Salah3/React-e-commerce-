@@ -14,7 +14,7 @@ const AddProducts = () => {
   const [image, setImage] = useState({
     coverImg: null,
     measurementImage: null,
-    explainChart:null,
+    explainChart: null,
   });
 
   const [images, setImages] = useState([]);
@@ -31,7 +31,7 @@ const AddProducts = () => {
     CategoryId: null,
     SubCategoryId: null,
     category: "",
-    isPriceSame:null
+    isPriceSame: null,
   });
 
   const [categories, setCategories] = useState([]);
@@ -43,7 +43,7 @@ const AddProducts = () => {
         const categoryResponse = await instance.get("/Category");
         setCategories(categoryResponse.data);
       } catch (error) {
-        toast.error("Error fetching categories:", error);
+        toast.error("خطأ في جلب الفئات:", error);
       }
     };
 
@@ -86,7 +86,7 @@ const AddProducts = () => {
         subCategory: "",
       }));
     } catch (error) {
-      toast.error("Error fetching subcategories:", error.message);
+      toast.error("خطأ في جلب الفئات الفرعية:", error.message);
     }
   };
 
@@ -120,9 +120,9 @@ const AddProducts = () => {
             },
           }
         );
-        toast.success("Attachments added successfully", response.data);
+        toast.success("تم إضافة المرفقات بنجاح", response.data);
       } catch (error) {
-        toast.error("Error adding attachments:", error);
+        toast.error("خطأ في إضافة المرفقات:", error);
       }
     };
 
@@ -141,7 +141,7 @@ const AddProducts = () => {
     formDatas.append("SubCategoryId", formData.SubCategoryId);
     formDatas.append("CategoryId", formData.CategoryId);
     formDatas.append("IsActive", schedule === "now");
-    formDatas.append("IsPriceSame" , formData.isPriceSame)
+    formDatas.append("IsPriceSame", formData.isPriceSame);
 
     try {
       const response = await instance.post("/Product", formDatas, {
@@ -151,9 +151,9 @@ const AddProducts = () => {
       });
       const productId = response.data.data.id;
       await sendAttachment(productId);
-      toast.success("Product added successfully", response.data);
+      toast.success("تم إضافة المنتج بنجاح", response.data);
     } catch (error) {
-      toast.error("Error adding product:", error);
+      toast.error("خطأ في إضافة المنتج:", error);
     }
   };
 
@@ -164,26 +164,26 @@ const AddProducts = () => {
   return (
     <div className={styles["add-productPage"]}>
       <div className="main-header">
-        <h1>Add Products</h1>
+        <h1>إضافة منتجات</h1>
       </div>
       <div className={styles.form}>
         <form onSubmit={handleSubmit}>
           <div className={styles["product-info"]}>
             <div className={styles["basic-info"]}>
               <InputField
-                label="Name"
+                label="الاسم"
                 id="name"
-                placeholder="Add a Name"
+                placeholder="أضف اسمًا"
                 value={formData.name}
                 onchange={handleInputChange}
                 required
               />
               <InputField
-                label="Category"
+                label="الفئة"
                 id="CategoryId"
                 type="select"
                 options={[
-                  { value: "", label: "Choose a category" },
+                  { value: "", label: "اختر فئة" },
                   ...categories.map((category) => ({
                     value: category.id,
                     label: category.name,
@@ -193,11 +193,11 @@ const AddProducts = () => {
                 onchange={fetchSubCategory}
               />
               <InputField
-                label="Sub-category"
+                label="الفئة الفرعية"
                 id="SubCategoryId"
                 type="select"
                 options={[
-                  { value: "", label: "Choose a sub-category" },
+                  { value: "", label: "اختر فئة فرعية" },
                   ...subCategories.map((subCategory) => ({
                     value: subCategory.id,
                     label: subCategory.name,
@@ -208,49 +208,49 @@ const AddProducts = () => {
               />
             </div>
 
-            {/* Description */}
+            {/* الوصف */}
             <div className={styles["description-section"]}>
               <InputField
-                label="Add a Description"
+                label="أضف وصفًا"
                 id="description"
                 type="textarea"
                 value={formData.description}
                 onchange={handleInputChange}
-                placeholder="Add a Description"
+                placeholder="أضف وصفًا"
               />
             </div>
           </div>
           <div className={styles.price}>
             <InputField
-              label="Price"
+              label="السعر"
               id="price"
-              placeholder="Add a Price"
+              placeholder="أضف سعرًا"
               value={formData.price}
               onchange={handleInputChange}
               required
             />
-                 <InputField
-              label="Is Price Same"
+            <InputField
+              label="هل السعر ثابت"
               id="isPriceSame"
               type="select"
               options={[
-                { value: "", label: "Select"  },
-                { value: "on", label: "on" },
-                { value: "off", label: "off" },
+                { value: "", label: "اختر" },
+                { value: "on", label: "نعم" },
+                { value: "off", label: "لا" },
               ]}
               onchange={handleInputChange}
               value={formData.isPriceSame}
-          />
+            />
             <InputField
-              label="Quantity"
+              label="الكمية"
               id="quantity"
-              placeholder="Add a quantity"
+              placeholder="أضف كمية"
               value={formData.quantity}
               onchange={handleInputChange}
               required
             />
           </div>
-          {/* Image Upload Section */}
+          {/* قسم تحميل الصور */}
           <div className={styles["image-upload-section"]}>
             <div
               className={`${styles["image-upload"]} ${styles.cover}`}
@@ -278,8 +278,7 @@ const AddProducts = () => {
                     <div>
                       <GoUpload />
                       <h4>
-                        Drag & Drop or <span>Choose file</span> to upload Image
-                        Cover
+                        اسحب وأفلت أو <span>اختر ملفًا</span> لتحميل صورة الغلاف
                       </h4>
                     </div>
                   )}
@@ -315,8 +314,8 @@ const AddProducts = () => {
                     <div>
                       <GoUpload />
                       <h4>
-                        Drag & Drop or <span>Choose file</span> to upload Images
-                        <p>PNG or JPEG</p>
+                        اسحب وأفلت أو <span>اختر ملفًا</span> لتحميل الصور
+                        <p>PNG أو JPEG</p>
                       </h4>
                     </div>
                   )}
@@ -325,9 +324,9 @@ const AddProducts = () => {
             </div>
           </div>
 
-          {/* Measurements Section */}
+          قسم القياسات
           <div className={styles["measurements-container"]}>
-            <h4> Add Measurements</h4>
+            <h4> أضف القياسات</h4>
             <div className={styles["image-upload-section"]}>
               <div
                 className={`${styles["image-upload"]} ${styles.cover}`}
@@ -355,15 +354,14 @@ const AddProducts = () => {
                       <div>
                         <GoUpload />
                         <h4>
-                          Drag & Drop or <span>Choose file</span> to upload
-                          Image Cover
+                          اسحب وأفلت أو <span>اختر ملفًا</span> لتحميل صورة الغلاف
                         </h4>
                       </div>
                     )}
                   </div>
                 </label>
-            </div>
-            <div className={styles.measurments}></div>
+              </div>
+              <div className={styles.measurments}></div>
               <div
                 className={`${styles["image-upload"]} ${styles.image}`}
                 style={{ border: image.explainChart && "none" }}
@@ -390,8 +388,7 @@ const AddProducts = () => {
                       <div>
                         <GoUpload />
                         <h4>
-                          Drag & Drop or <span>Choose file</span> to upload
-                          Image Cover
+                          اسحب وأفلت أو <span>اختر ملفًا</span> لتحميل صورة الغلاف
                         </h4>
                       </div>
                     )}
@@ -402,7 +399,7 @@ const AddProducts = () => {
             <div className={styles.measurments}></div>
           </div>
 
-          {/* Scheduling Section */}
+          {/* قسم الجدولة */}
           <div className={styles["schedule-section"]}>
             <div className={styles["schedule-options"]}>
               <label htmlFor="now">
@@ -414,7 +411,7 @@ const AddProducts = () => {
                   checked={schedule === "now"}
                   onChange={handleScheduleChange}
                 />
-                Now
+                الآن
               </label>
               <label htmlFor="later">
                 <input
@@ -425,24 +422,24 @@ const AddProducts = () => {
                   checked={schedule === "later"}
                   onChange={handleScheduleChange}
                 />
-                Later
+                لاحقًا
               </label>
             </div>
 
             {schedule === "later" && (
               <div className={styles["schedule-time"]}>
                 <InputField
-                  label="Schedule Upload Date"
+                  label="تاريخ الجدولة"
                   id="ScheduleDate"
                   type="date"
-                  placeholder="Select date"
+                  placeholder="اختر تاريخًا"
                   required
                   onchange={handleInputChange}
                 />
                 <InputField
-                  label="Schedule Upload Time"
+                  label="وقت الجدولة"
                   type="time"
-                  placeholder="Select Time"
+                  placeholder="اختر وقتًا"
                   required
                   onchange={handleInputChange}
                 />
@@ -450,15 +447,15 @@ const AddProducts = () => {
             )}
           </div>
 
-          {/* Action Buttons */}
+          {/* أزرار الإجراءات */}
           <div className="--btn-action">
             <MainButton
-              value="Cancle"
+              value="إلغاء"
               onClick={() => {
                 navigate("/admin/products");
               }}
             />
-            <MainButton value="Save" type="submit" />
+            <MainButton value="حفظ" type="submit" />
           </div>
         </form>
       </div>

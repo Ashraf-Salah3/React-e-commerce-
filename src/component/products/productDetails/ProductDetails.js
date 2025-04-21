@@ -110,6 +110,7 @@ const ProductDetails = () => {
 
   return (
     <div className={styles.ProductDetails}>
+      <div className="container" >
       <div className={styles.title}>
         <h3>{details.name}</h3>
         <IoIosArrowBack size={25} onClick={() => navigate("/")} />
@@ -184,18 +185,18 @@ const ProductDetails = () => {
                       : styles.discountPrice
                   }
                 >
-                  <FaShekelSign size={15} />
+                  
                   {isNaN(selectedSize?.costPrice)
                     ? (
                         Number(selectedSize?.costPrice) ||
                         Number(details?.price)
                       ).toFixed(2)
-                    : selectedSize?.costPrice.toFixed(2)}
+                    : selectedSize?.costPrice.toFixed(2)}{" "}ج.م
                 </p>
                 {details?.tradeDiscount !== null && (
                   <p className={styles["sale-price"]}>
-                    <FaShekelSign size={15} />
-                    {Number(details.price - details?.tradeDiscount).toFixed(2)}
+              
+                    {Number(details.price - details?.tradeDiscount).toFixed(2)}{" "} ج.م
                   </p>
                 )}
               </div>
@@ -208,17 +209,17 @@ const ProductDetails = () => {
                       : styles.discountPrice
                   }
                 >
-                  <FaShekelSign size={22} />
+        
                   {isNaN(selectedSize?.price)
                     ? (
                         Number(selectedSize?.price) || Number(details?.price)
                       ).toFixed(2)
-                    : selectedSize?.price.toFixed(2)}
+                    : selectedSize?.price.toFixed(2) }ج.م
                 </p>
                 {details?.saleDiscount !== null && (
                   <p className={styles["sale-price"]}>
-                    <FaShekelSign size={15} />
-                    {Number(details.price - details?.saleDiscount).toFixed(2)}
+           
+                    {Number(details.price - details?.saleDiscount).toFixed(2)}ج.م
                   </p>
                 )}
               </div>
@@ -319,7 +320,7 @@ const ProductDetails = () => {
             أضف الي السله <FaCartPlus size={27} />
           </button>
         </div>
-        <div className={styles.dimentions}>
+        {/*<div className={styles.dimentions}>
           <div className={styles.measurmentImg}>
             <img
               src={details?.explainChartImage?.imageUrl}
@@ -332,7 +333,7 @@ const ProductDetails = () => {
               alt="measurment chart"
             />
           </div>
-        </div>
+        </div>*/}
       </div>
       <div className={styles["policies-container"]}>
         <h3>سياساتنا في العمل:</h3>
@@ -353,6 +354,7 @@ const ProductDetails = () => {
         </div>
       </div>
       </div>
+    </div>
     </div>
   );
 };

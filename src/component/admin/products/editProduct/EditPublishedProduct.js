@@ -56,37 +56,37 @@ const EditPublishedProduct = () => {
       },
     })
     .then((response) => {
-      toast.success("Product updated successfully:", response.data);
+      toast.success("تم تحديث المنتج بنجاح:", response.data);
     })
     .catch((error) => {
-      toast("Error updating product:", error.response?.data || error.message);
+      toast("خطأ في تحديث المنتج:", error.response?.data || error.message);
     });
 };
   return (
     <div className={styles.editeProduct}>
-      <h1 >Edit Product</h1>
+      <h1 >تعديل المنتج</h1>
       <div className={styles.formContainer}>
         <form onSubmit={handelSubmit}>
             <div className={styles.formInput}>
           <InputField
-            label="Product Name"
+            label="اسم المنتج"
             id="Name"
-            placeholder="Name"
+            placeholder="الاسم"
             required
             onchange={handelInput}
             value={formData.Name}
           />
           <InputField
-            label="Price"
+            label="السعر"
             id="Price"
             placeholder="0"
             required
-            icon={<img src={priceIcon} alt="Price Icon" />}
+            icon={<img src={priceIcon} alt="رمز السعر" />}
             value={formData.Price}
             onchange={handelInput}
           />
           <InputField
-            label="Quantity"
+            label="الكمية"
             id="Quantity"
             type="text"
             required
@@ -94,15 +94,15 @@ const EditPublishedProduct = () => {
             value={formData.Quantity}
           />
           <InputField
-            label="Description"
+            label="الوصف"
             id="Description"
-            placeholder="Description"
+            placeholder="الوصف"
             type="text"
             onchange={handelInput}
             value={formData.Description}
           />
           <InputField
-            label="ScheduleDate"
+            label="تاريخ الجدولة"
             id="ScheduleDate"
             type="date"
             required
@@ -110,26 +110,26 @@ const EditPublishedProduct = () => {
             value={formData.date}
           />
             <InputField
-              label="IsActive"
+              label="الحالة"
               id="IsActive"
               type="select"
               options={[
-                { value: "", label: "Select Status" },
-                { value: "now", label: "Now" },
-                { value: "later", label: "Later" },
+                { value: "", label: "اختر الحالة" },
+                { value: "now", label: "الآن" },
+                { value: "later", label: "لاحقًا" },
               ]}
               onchange={handelInput}
               value={formData.IsActive}
           />
            <InputField
-            label="TradeDiscount"
+            label="خصم التجارة"
             id="TradeDiscount"
             type="text"
             onchange={handelInput}
             value={formData.TradeDiscount}
           />
            <InputField
-            label="SaleDiscount"
+            label="خصم البيع"
             id="SaleDiscount"
             type="text"
             onchange={handelInput}
@@ -137,8 +137,8 @@ const EditPublishedProduct = () => {
           />
           </div>
           <div className="--btn-action">
-           <MainButton value="Cancle"/>
-           <MainButton value="Save" type="submit" />
+           <MainButton value="إلغاء"/>
+           <MainButton value="حفظ" type="submit" />
           </div>
         </form>
       </div>

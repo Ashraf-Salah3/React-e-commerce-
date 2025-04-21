@@ -19,17 +19,17 @@ const ProfilePage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
-    toast.success("Form Submitted");
+    toast.success("تم إرسال النموذج بنجاح");
   };
 
   return (
     <div className={styles.profilePage}>
       <div className="main-header">
-        <h1>Profile Page</h1>
+        <h1>صفحة الملف الشخصي</h1>
         <div>
           <button className="--btn --btn-primary --btn-small">
             <MdOutlineEdit size={20} />
-            Edit
+            تعديل
           </button>
         </div>
       </div>
@@ -58,69 +58,69 @@ const ProfilePage = () => {
                   {!image && (
                     <div>
                       <span>+</span>
-                      <h4> Add a Picture</h4>
-                      <p>PNG or JPG</p>
+                      <h4> إضافة صورة</h4>
+                      <p>PNG أو JPG</p>
                     </div>
                   )}
                 </div>
               </label>
               <div>
                 <div>
-                  <h3>Mohammad Arja</h3>
-                  <p>Website Manager</p>
+                  <h3></h3>
+                  <p>مدير الموقع</p>
                 </div>
               </div>
             </div>
 
             <div className={styles.profileDetailsSection}>
               <InputField
-                label="First Name"
+                label="الاسم الأول"
                 id="firstName"
-                placeholder="First Name"
+                placeholder="الاسم الأول"
                 required
                 type="text"
                
               />
               <InputField
-                label="Last Name"
+                label="الاسم الأخير"
                 id="lastName"
-                placeholder="Last Name"
+                placeholder="الاسم الأخير"
              
                 type="text"
               />
               <InputField
-                label="Email"
+                label="البريد الإلكتروني"
                 id="email"
-                placeholder="Email"
+                placeholder="البريد الإلكتروني"
         
                 type="email"
               />
               <InputField
-                label="Mobile Number"
+                label="رقم الجوال"
                 id="mobileNumber"
-                placeholder="Mobile Number"
+                placeholder="رقم الجوال"
          
                 type="text"
               />
               <InputField
-                label="Password"
+                label="كلمة المرور"
                 id="password"
-                placeholder="Password"
+                placeholder="كلمة المرور"
              
                 type="password"
               />
               <InputField
-                label="Job Title"
+                label="المسمى الوظيفي"
                 id="jobTitle"
-                placeholder="Job Title"
+                placeholder="المسمى الوظيفي"
              
                 type="text"
               />
             </div>
           </div>
           <div className="--btn-action">
-            <MainButton value="Cancle" />
-            <MainButton value="Save" type="submit"/>
+            <MainButton value="إلغاء" />
+            <MainButton value="حفظ" type="submit"/>
           </div>
         </form>
       </div>

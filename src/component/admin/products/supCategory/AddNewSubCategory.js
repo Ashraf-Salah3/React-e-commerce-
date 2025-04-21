@@ -16,7 +16,7 @@ const AddNewSubCategory = () => {
 
   return (
     <div className={styles.categoriesDetails}>
-      <h1>Add New Sub Category</h1>
+      <h1>إضافة فئة فرعية جديدة</h1>
       <form onSubmit={handleSubCategorySubmit}>
         <div className={styles.categoryInputGroup}>
           <select
@@ -27,7 +27,7 @@ const AddNewSubCategory = () => {
             className="--input"
           >
             <option value="" disabled>
-              Select a category
+              اختر فئة
             </option>
             {categories &&
               categories.map((category) => (
@@ -38,9 +38,9 @@ const AddNewSubCategory = () => {
           </select>
 
           <input
-            label="Sub-category"
+            label="الفئة الفرعية"
             id="subCategory"
-            placeholder="Add a new sub-category"
+            placeholder="أضف فئة فرعية جديدة"
             required
             type="text"
             onChange={(e) => setNewSubCategory(e.target.value)}
@@ -54,10 +54,10 @@ const AddNewSubCategory = () => {
             type="button"
             onClick={() => navigate("/admin/subcategories")}
           >
-            Cancel
+            إلغاء
           </button>
           <button className="--btn --btn-primary --btn-small" type="submit" onClick={()=>navigate("/admin/subcategories")}>
-            Save
+            حفظ
           </button>
         </div>
       </form>

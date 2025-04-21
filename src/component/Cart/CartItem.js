@@ -64,7 +64,7 @@ function CartItem() {
                     </div>
                     <p className={styles.productPrice}>
                       {parseFloat(price)?.toFixed(2)}{" "}
-                      <img src={priceCart} alt="" />{" "}
+                      ج.م
                     </p>
 
                     <div className={styles.quantityContainer}>
@@ -91,7 +91,7 @@ function CartItem() {
                         </div>
                         <p className={styles.totalPrice}>
                           {" "}
-                          {quantity * price} <img src={priceCart} alt="" />
+                          {quantity * price} ج.م
                         </p>
                       </div>
                     </div>

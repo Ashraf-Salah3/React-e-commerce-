@@ -41,7 +41,7 @@ const AdvertisingPage = () => {
     try {
        await instance.delete(`/Story/${id}`);
       dispatch(fetchStories());
-      toast.success("Story deleted successfully!");
+      toast.success("تم حذفه بنجاح");
     } catch (error) {
       toast.error(error.message);
     }
@@ -50,7 +50,7 @@ const AdvertisingPage = () => {
   const handelDeletAdvertis = async (id) => {
     try {
        await instance.delete(`/Advertisment/${id}`);
-      toast.success("advertis deleted successfully!");
+      toast.success("تم حذف الإعلان بنجاح!");
       dispatch(fetchStories());
     } catch (error) {
       toast.error("error.message");
@@ -69,7 +69,7 @@ const submitFormHandler = async (e)=>{
   try {
     await instance.post("/News", {description: description})
     dispatch(fetchNews())
-    toast.success("News Is Added")
+    toast.success("تم إضافة الخبر بنجاح")
   } catch (error) {
     toast.error(error.message)
   }
@@ -77,7 +77,7 @@ const submitFormHandler = async (e)=>{
   const handelDeletedNews =async (id) => {
     try {
      await instance.delete(`/News?id=${id}`);
-      toast.success("news deleted successfully!");
+      toast.success("تم حذف الخبر بنجاح!");
       dispatch(fetchNews())
     } catch (error) {
       toast.error(error.message);
@@ -86,24 +86,24 @@ const submitFormHandler = async (e)=>{
   return (
     <div className={styles["advertising-page"]}>
       <div className="main-header">
-        <h1>Advertising Page</h1>
+        <h1>صفحة الاعلانات</h1>
       </div>
 
       <div className={styles["advertis-form"]}>
         <div className="main-header">
-          <h4>News</h4>
+          <h4>الأخبار</h4>
         </div>
         <div>
           <form onSubmit={submitFormHandler}>
             <InputField
             id="description"
-              label="description"
+              label="الوصف"
               type="text"
               value={description}
               onchange={(e) => setDescription(e.target.value)}
             />
             <div className="--btn-action">
-              <MainButton value="Save" type="submit" />
+              <MainButton value="حفظ" type="submit" />
             </div>
           </form>
         </div>
@@ -118,11 +118,11 @@ const submitFormHandler = async (e)=>{
                   </TableCell>
                   <TableCell>
                     {" "}
-                    <div>Description</div>
+                    <div>الوصف</div>
                   </TableCell>
                   <TableCell>
                     {" "}
-                    <div>Delete</div>
+                    <div>حذف</div>
                   </TableCell>
                 </TableRow>
               </TableHead>
@@ -137,7 +137,7 @@ const submitFormHandler = async (e)=>{
                         className="--btn --btn-danger"
                         onClick={() => handelDeletedNews(news.id)}
                       >
-                        Delete
+                        حذف
                       </button>
                     </TableCell>
                   </TableRow>
@@ -150,7 +150,7 @@ const submitFormHandler = async (e)=>{
 
       <div className={styles["story-contanier"]}>
         <div className="main-header">
-          <h4>Stories</h4>
+          <h4>القصص</h4>
           <div>
             <button
               className="--btn --btn-primary"
@@ -159,7 +159,7 @@ const submitFormHandler = async (e)=>{
               }}
             >
               <FaPlus />
-              Add Story
+              إضافة قصة
             </button>
           </div>
         </div>
@@ -174,13 +174,13 @@ const submitFormHandler = async (e)=>{
                   <img src={story.storyUrl} alt={story.name} />
                 </div>
                 <div className={styles.title}>
-                  <p>Story{index + 1}</p>
+                  <p>قصة {index + 1}</p>
                 </div>
                 <button
                   className={`--btn ${styles["delete-btn"]}`}
                   onClick={() => handelDeletStory(story.id)}
                 >
-                  Delete
+                  حذف
                 </button>
               </div>
             </div>
@@ -196,7 +196,7 @@ const submitFormHandler = async (e)=>{
                 className={styles["popup-image"]}
               />
               <button onClick={closePopup} className={styles["close-btn"]}>
-                Close
+              إغلاق
               </button>
             </div>
           </div>
@@ -205,7 +205,7 @@ const submitFormHandler = async (e)=>{
 
       <div className={styles["advertis-contanier"]}>
         <div className="main-header">
-          <h4>Advertises</h4>
+          <h4>الإعلانات</h4>
           <div>
             <button
               className="--btn --btn-primary"
@@ -214,7 +214,7 @@ const submitFormHandler = async (e)=>{
               }}
             >
               <FaPlus />
-              Add New Advertis
+              إضافة إعلان جديد
             </button>
           </div>
         </div>
@@ -228,13 +228,13 @@ const submitFormHandler = async (e)=>{
                   <img src={adv.advertismentUrl} alt={adv.name} />
                 </div>
                 <div className={styles.title}>
-                  <p>Advertis{index + 1}</p>
+                  <p>إعلان {index + 1}</p>
                 </div>
                 <button
                   className={`--btn ${styles["delete-btn"]}`}
                   onClick={() => handelDeletAdvertis(adv.id)}
                 >
-                  Delete
+                  حذف
                 </button>
               </div>
             </div>

@@ -40,7 +40,7 @@ const AddSize = ({ productColorId }) => {
       });
 
       if (response.status === 200) {
-        toast.success("Add Size Sucess");
+        toast.success("تم إضافة الحجم بنجاح");
 
         getSize(productColorId);
       }
@@ -52,7 +52,7 @@ const AddSize = ({ productColorId }) => {
     try {
       const response = await instance.delete(`/Product/sizes/${id}`);
       if (response.status === 200) {
-        toast.success("sizes id deleted sucessful");
+        toast.success("تم حذف الحجم بنجاح");
         getSize(productColorId);
       }
     } catch (error) {
@@ -88,7 +88,7 @@ const AddSize = ({ productColorId }) => {
       });
 
       if (response.status === 200) {
-        toast.success("Size updated successfully!");
+        toast.success("تم تحديث الحجم بنجاح!");
         getSize(productColorId);
         setShowPopup(false);
       }
@@ -108,7 +108,7 @@ const AddSize = ({ productColorId }) => {
         <form onSubmit={handelFormSubmit}>
           <div className={styles.categoryInputGroup}>
             <InputField
-              label="Cost Price"
+              label="سعر التكلفة"
               type="text"
               id="costprice"
               required
@@ -116,14 +116,14 @@ const AddSize = ({ productColorId }) => {
               onchange={(e) => setCostPrice(e.target.value)}
             />
             <InputField
-              label="Sale Price"
+              label="سعر البيع"
               type="text"
               id="price"
               value={price}
               onchange={(e) => setPrice(e.target.value)}
             />
             <InputField
-              label="Quantity"
+              label="الكمية"
               type="text"
               id="quantity"
               required
@@ -131,7 +131,7 @@ const AddSize = ({ productColorId }) => {
               onchange={(e) => setQuantity(e.target.value)}
             />
             <InputField
-              label="Size"
+              label="الحجم"
               type="text"
               id="size"
               required
@@ -141,10 +141,10 @@ const AddSize = ({ productColorId }) => {
           </div>
           <div className="--btn-action">
             <button className="--btn --btn-small --btn-secondary" type="button">
-              Cancel
+            إلغاء
             </button>
             <button className="--btn --btn-primary --btn-small" type="submit">
-              Save
+            حفظ
             </button>
           </div>
         </form>
@@ -159,22 +159,22 @@ const AddSize = ({ productColorId }) => {
                   <div>colorId</div>
                 </TableCell>
                 <TableCell>
-                  <div>size</div>
+                  <div>الحجم</div>
                 </TableCell>
                 <TableCell>
-                  <div>Sale Price</div>
+                  <div>سعر البيع</div>
                 </TableCell>
                 <TableCell>
-                  <div>Cost Price</div>
+                  <div>سعر التكلفة</div>
                 </TableCell>
                 <TableCell>
-                  <div>Quantity</div>
+                  <div>الكمية</div>
                 </TableCell>
                 <TableCell>
-                  <div>Edit Size</div>
+                  <div>تعديل الحجم</div>
                 </TableCell>
                 <TableCell>
-                  <div>Delete Size</div>
+                  <div>حذف الحجم</div>
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -192,7 +192,7 @@ const AddSize = ({ productColorId }) => {
                       className="--btn --btn-primary"
                       onClick={() => handleEdit(size)}
                     >
-                      Edit
+                      تعديل
                     </button>
                   </TableCell>
                   <TableCell>
@@ -200,7 +200,7 @@ const AddSize = ({ productColorId }) => {
                       className="--btn --btn-danger"
                       onClick={() => handleDelete(size.id)}
                     >
-                      Delete
+                      حذف
                     </button>
                   </TableCell>
                 </TableRow>
@@ -220,21 +220,21 @@ const AddSize = ({ productColorId }) => {
           >
             <form onSubmit={handleEditFormSubmit}>
               <InputField
-                label="Edit Price"
+                label="تعديل السعر"
                 type="text"
                 id="editPrice"
                 value={editForm.editPrice}
                 onchange={handleEditInputChange}
               />
               <InputField
-                label="Edit Quantity"
+                label="تعديل الكمية"
                 type="text"
                 id="editQuantity"
                 value={editForm.editQuantity}
                 onchange={handleEditInputChange}
               />
                 <InputField
-                label="Edit Size"
+                label="تعديل الكمية"
                 type="text"
                 id="editSize"
                 value={editForm.editSize}
@@ -246,10 +246,10 @@ const AddSize = ({ productColorId }) => {
                   type="button"
                   onClick={() => setShowPopup(false)}
                 >
-                  Cancel
+                  إلغاء
                 </button>
                 <button className="--btn --btn-primary --btn-small" type="submit">
-                  Save
+                حفظ
                 </button>
               </div>
             </form>
