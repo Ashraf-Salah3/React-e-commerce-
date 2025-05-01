@@ -6,10 +6,11 @@ import instance from '../../../../axios'
 import { toast } from 'react-toastify'
 const AddStory = () => {
   const [storyImg, setStoryImg] = useState(null);
-
+const [loading, setLoading] = useState(false)
 
   const handelStoriesSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
     const formData = new FormData();
     formData.append("StoryImage" , storyImg)
     try {
@@ -20,7 +21,10 @@ const AddStory = () => {
       });
       setStoryImg(null)
       toast.success("تم إضافة القصة");
-    } catch (error) {}
+      setLoading(false)
+    } catch (error) {
+      setLoading(false)
+    }
   };
 
   return (
@@ -64,7 +68,7 @@ const AddStory = () => {
             </label>
           </div>
           <div className="--btn-action">
-            <MainButton value="حفظ" type="submit" />
+            <MainButton value="حفظ" type="submit" loading={loading}/>
           </div>
         </form>
       </div>

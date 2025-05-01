@@ -67,6 +67,7 @@ const App = () => {
         />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<NotFound/>} />
+        <Route path="/admin/*" element={<NotFound/>} />
       </Routes>
       
       {!isSpecialPage && <Footer />}

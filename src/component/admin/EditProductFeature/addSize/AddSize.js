@@ -22,6 +22,7 @@ const AddSize = ({ productColorId }) => {
   const { sizes, getSize } = useProducts();
   const [showPopup, setShowPopup] = useState(false);
   const [editSizeId, setEditSizeId] = useState("")
+  const [loading , setLoading] = useState(false)
   const [editForm, setEditForm] = useState({
     editPrice: "",
     editQuantity: "",
@@ -30,7 +31,9 @@ const AddSize = ({ productColorId }) => {
 
   const handelFormSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
     try {
+      
       const response = await instance.post("/Product/sizes", {
         price,
         quantity,
@@ -43,9 +46,17 @@ const AddSize = ({ productColorId }) => {
         toast.success("تم إضافة الحجم بنجاح");
 
         getSize(productColorId);
+     
+        setCostPrice("")
+        setPrice("")
+        setCostPrice("")
+        setSize("")
+        setQuantity("")
+        setLoading(false)
       }
     } catch (error) {
       toast.error(error.message);
+      setLoading(false)
     }
   };
   const handleDelete = async (id) => {
@@ -143,8 +154,8 @@ const AddSize = ({ productColorId }) => {
             <button className="--btn --btn-small --btn-secondary" type="button">
             إلغاء
             </button>
-            <button className="--btn --btn-primary --btn-small" type="submit">
-            حفظ
+            <button className="--btn --btn-primary --btn-small" type="submit" disabled={loading}>
+            {loading ? "loading" : "Save"}
             </button>
           </div>
         </form>

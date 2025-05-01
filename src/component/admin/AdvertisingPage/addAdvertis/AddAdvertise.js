@@ -6,10 +6,11 @@ import { toast } from 'react-toastify';
 import styles from "./add-addvertis.module.scss"
 const AddAdvertise = () => {
   const [image, setImage] = useState(null);
-
+  const [loading,setLoading] = useState(false)
   const handelAdvertisSubmit = async (e) => {
 
     e.preventDefault();
+    setLoading(true)
     const formData = new FormData();
     formData.append("AdvertismentImage", image);
     try {
@@ -21,7 +22,10 @@ const AddAdvertise = () => {
       
       toast.success("تمت إضافة الإعلان بنجاح");
       setImage(null)
-    } catch (error) {}
+      setLoading(false)
+    } catch (error) {
+      setLoading(false)
+    }
   };
   return (
     <div className={styles["advertis-contanier"]}>
@@ -64,7 +68,7 @@ const AddAdvertise = () => {
         </label>
       </div>
       <div className="--btn-action">
-        <MainButton value="حفظ" type="submit" />
+        <MainButton value="حفظ" type="submit" loading={loading}/>
       </div>
     </form>
   </div>

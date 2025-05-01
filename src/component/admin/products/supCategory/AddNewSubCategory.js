@@ -6,12 +6,16 @@ const AddNewSubCategory = () => {
   const { AddNewSubCategory, categories } = useFetchCategories();
   const [selectedCategory, setSelectedCategory] = useState("");
   const [newSubCategory, setNewSubCategory] = useState("");
+   const [loading, setLoaging] = useState(false)
+  
   const navigate = useNavigate();
 
 
   const handleSubCategorySubmit = (e) => {
     e.preventDefault();
+    setLoaging(true)
     AddNewSubCategory(selectedCategory, newSubCategory);
+    setLoaging(false)
   };
 
   return (
@@ -57,7 +61,7 @@ const AddNewSubCategory = () => {
             إلغاء
           </button>
           <button className="--btn --btn-primary --btn-small" type="submit" onClick={()=>navigate("/admin/subcategories")}>
-            حفظ
+            {loading ? "loaging" : "Save"}
           </button>
         </div>
       </form>

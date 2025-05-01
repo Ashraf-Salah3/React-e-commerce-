@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const AddProducts = () => {
   const [schedule, setSchedule] = useState("now");
+  const [loading , setLoading] = useState(false)
 
   const navigate = useNavigate();
   const [image, setImage] = useState({
@@ -100,15 +101,15 @@ const AddProducts = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+     setLoading(true)
     const sendAttachment = async (id) => {
       const attachment = new FormData();
       images.forEach((image) => {
         attachment.append("Images", image.file);
       });
       attachment.append("ProductId", id);
-      attachment.append("MeasurmentCahart", image.measurementImage);
-      attachment.append("ExplainChart", image.explainChart);
+      // attachment.append("MeasurmentCahart", image.measurementImage);
+      // attachment.append("ExplainChart", image.explainChart);
 
       try {
         const response = await instance.post(
@@ -152,8 +153,10 @@ const AddProducts = () => {
       const productId = response.data.data.id;
       await sendAttachment(productId);
       toast.success("تم إضافة المنتج بنجاح", response.data);
+      setLoading(false)
     } catch (error) {
       toast.error("خطأ في إضافة المنتج:", error);
+      setLoading(false)
     }
   };
 
@@ -323,7 +326,7 @@ const AddProducts = () => {
               </label>
             </div>
           </div>
-
+{/* 
           قسم القياسات
           <div className={styles["measurements-container"]}>
             <h4> أضف القياسات</h4>
@@ -397,7 +400,7 @@ const AddProducts = () => {
               </div>
             </div>
             <div className={styles.measurments}></div>
-          </div>
+          </div> */}
 
           {/* قسم الجدولة */}
           <div className={styles["schedule-section"]}>
@@ -455,7 +458,7 @@ const AddProducts = () => {
                 navigate("/admin/products");
               }}
             />
-            <MainButton value="حفظ" type="submit" />
+            <MainButton value="حفظ" type="submit" loading={loading}/>
           </div>
         </form>
       </div>

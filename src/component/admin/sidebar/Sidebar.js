@@ -46,11 +46,11 @@ const Sidebar = () => {
               الإعلانات
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink to="/admin/register" className={activeLink}>
               إنشاء حساب
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink to="/" className={activeLink}>
               العودة إلى الصفحة الرئيسية

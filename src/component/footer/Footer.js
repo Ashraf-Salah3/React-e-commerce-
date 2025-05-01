@@ -21,22 +21,14 @@ export const Footer = () => {
           <div className={styles.contactus}>
             <h2>تواصلوا معنا عبر </h2>
             <div className={styles.icons}>
-              <a href="##" target="_blank" rel="noopener noreferrer">
-                <FaLinkedinIn />
-              </a>
-              <a href="##" target="_blank" rel="noopener noreferrer">
-                <FaTiktok />
-              </a>
-              <a href="##" target="_blank" rel="noopener noreferrer">
+           
+             
+              <a href="https://www.facebook.com/share/18rU1gCXJx/" target="_blank" rel="noopener noreferrer">
                 <FaFacebook />
               </a>
-              <a href="##" target="_blank" rel="noopener noreferrer">
-                <FaTwitter />
-              </a>
-              <a href="##" target="_blank" rel="noopener noreferrer">
-                <FaInstagram />
-              </a>
-              <a href="##" target="_blank" rel="noopener noreferrer">
+            
+             
+              <a href="https://wa.me/qr/J7NI3TZQU66BB1" target="_blank" rel="noopener noreferrer">
                 <FaWhatsapp />
               </a>
             </div>
@@ -51,7 +43,7 @@ export const Footer = () => {
         <hr></hr>
         <div>
           <p> ©جميع الحقوق محفوظة 2024 </p>
-          <p className={styles.copyRight}> Designed by Ashraf Salah </p>
+          {/* <p className={styles.copyRight}> Designed by Ashraf Salah </p> */}
         </div>
       </div>
     </div>

@@ -65,7 +65,7 @@ const Admin = () => {
           <Route path='/addSize' element={<AddSize/>}/>
           <Route path='/addStory' element={<AddStory/>}/>
           <Route path='/advertis' element={<AddAdvertise/>}/>
-          <Route path='/register' element={<Register/>}/>
+          {/* <Route path='/register' element={<Register/>}/> */}
         </Routes>
       </div>
     </div>

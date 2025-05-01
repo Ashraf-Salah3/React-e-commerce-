@@ -16,10 +16,10 @@ const Checkout = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
- 
-  const productData = useSelector(state => state.cart.productData)
 
+  const productData = useSelector((state) => state.cart.productData);
 
   const products = productData.map((item) => ({
     productId: item.id,
@@ -27,36 +27,28 @@ const Checkout = () => {
     quantity: item.quantity,
     sizeId: item.sizeId,
     color: item.color,
-    price:item.price,
-    imageUrl: item.imageCover
+    price: item.price,
+    imageUrl: item.imageCover,
   }));
 
   useEffect(() => {
     const fetchCities = async () => {
       try {
-        const response = await instance.get(
-          "Shipping/local-cities"
-        );
+        const response = await instance.get("Shipping/local-cities");
         setTowns(response.data);
-      } catch (error) {
-      }
+      } catch (error) {}
     };
     fetchCities();
   }, []);
-  console.log(towns)
 
   const handleTownChange = async (e) => {
     const { value } = e.target;
     setSelectedTown(value);
     try {
-      const response = await instance.get(
-        `Shipping/local/city/${value}`
-      );
+      const response = await instance.get(`Shipping/local/city/${value}`);
 
       if (response.status === 200) {
         setVillages(response.data.citiesAndVillages);
-
-     
       } else {
         setVillages([]);
       }
@@ -65,7 +57,7 @@ const Checkout = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     try {
       await instance.post("/Order", {
         cityId: selectedTown,
@@ -75,13 +67,14 @@ const Checkout = () => {
         clientName: name,
         clientPhone: phone,
       });
-     toast.success("تم اضافه الطلب بنجاح")
+      toast.success("تم اضافه الطلب بنجاح");
       setAddress("");
       setName("");
       setPhone("");
       setTowns([]);
       setVillages([]);
-      dispatch(CLEAR_CART())
+      dispatch(CLEAR_CART());
+      setLoading(false);
     } catch (error) {}
   };
 
@@ -127,13 +120,13 @@ const Checkout = () => {
                 options={
                   selectedTown
                     ? [
-                        { value: "", label: "اختر المدينة" },
+                        { value: "", label: "اختر المدينه" },
                         ...villages.map((village) => ({
                           value: village.id,
                           label: village.nameInArabic,
                         })),
                       ]
-                    : [{ value: "", label: "الرجاء اختيار المدينة أولاً" }]
+                    : [{ value: "", label: "الرجاء اختيار المحافظة أولاً" }]
                 }
                 onchange={(e) => setSelectedVillage(e.target.value)}
                 value={selectedVillage}

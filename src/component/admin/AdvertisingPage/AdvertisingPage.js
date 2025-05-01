@@ -30,6 +30,7 @@ const AdvertisingPage = () => {
   const [description, setDescription] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     dispatch(fetchStories());
@@ -66,12 +67,16 @@ const AdvertisingPage = () => {
   };
 const submitFormHandler = async (e)=>{
   e.preventDefault();
+  setLoading(true)
   try {
     await instance.post("/News", {description: description})
     dispatch(fetchNews())
     toast.success("تم إضافة الخبر بنجاح")
+    setLoading(false)
+
   } catch (error) {
     toast.error(error.message)
+    setLoading(false)
   }
 }
   const handelDeletedNews =async (id) => {

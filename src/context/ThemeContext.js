@@ -28,7 +28,7 @@ export const ThemeProvider = ({ children }) => {
     }
   }, [theme]);
 
-  // التحكم في الثيم بناءً على المسار.
+
   useEffect(() => {
     if (location.pathname === "/login" || location.pathname.startsWith("/admin")) {
       document.body.classList.remove("dark", "light");

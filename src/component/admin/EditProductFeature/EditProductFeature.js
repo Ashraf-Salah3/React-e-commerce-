@@ -20,6 +20,8 @@ const EditProductFeature = () => {
   const [coverImg, setCoverImg] = useState(null);
   const [color, setColor] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
+    const [loading , setLoading] = useState(false)
+  
 
   const handleCategoryChange = (e) => {
     const { value } = e.target;
@@ -54,7 +56,7 @@ const EditProductFeature = () => {
       toast.error("Pيرجى ملء جميع الحقول المطلوبة.");
       return;
     }
-
+setLoading(true)
     const formData = new FormData();
     formData.append("ProductId", selectedProduct);
     formData.append("Color", color);
@@ -70,8 +72,13 @@ const EditProductFeature = () => {
       });
       getProductColor(selectedProduct); // Fetch colors again after submitting
       toast.success("تم تحديث ميزة المنتج بنجاح!");
+      setColor("")
+      setCoverImg(null)
+      setProductFilter("")
+      setLoading(false)
     } catch (error) {
       toast.error(`خطأ في تحديث ميزة المنتج: ${error.message}`);
+      setLoading(false)
     }
   };
 
@@ -188,7 +195,7 @@ const EditProductFeature = () => {
             </div>
             {/* Action Buttons */}
             <div className="--btn-action">
-              <MainButton value="حفظ" type="submit" />
+              <MainButton value="حفظ" type="submit" loading = {loading}/>
             </div>
           </form>
         </div>

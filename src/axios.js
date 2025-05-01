@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const DEV_BASE_URL = "https://clotheshop.runasp.net";
+export const DEV_BASE_URL = "https://insidehome.runasp.net";
 
 
 const instance = axios.create({

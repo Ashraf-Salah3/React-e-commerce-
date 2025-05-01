@@ -1,11 +1,12 @@
-const MainButton = ({ value, type, onClick }) => {
+const MainButton = ({ value, type, onClick,loading }) => {
   return (
     <button
       className={`--btn --btn-small ${value === "Save" ? "--btn-primary" : ""}`}
       type={type}
       onClick={onClick}
+      disabled={loading}
     >
-      {value}
+      {loading ? "loading": value}
     </button>
   );
 };

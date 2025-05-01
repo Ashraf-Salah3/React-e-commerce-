@@ -8,12 +8,19 @@ const AddNewCategories = () => {
   const [mainCategory, setMainCategory] = useState("");
   const navigate = useNavigate();
   const { addCategory } = useFetchCategories();
-
+ const [loading, setLoaging] = useState(false)
   const handleCategorySubmit = async (e) => {
     e.preventDefault();
+    setLoaging(true)
+    try{
     await addCategory(mainCategory);
     setMainCategory("");
-    navigate("/admin/categories");
+    setLoaging(true)
+   
+    }catch{
+      setLoaging(false)
+    }
+    
   };
 
   return (
@@ -50,7 +57,7 @@ const AddNewCategories = () => {
               إلغاء
             </button>
             <button className="--btn --btn-primary --btn-small" type="submit">
-              حفظ
+              {!loading ? "Save" : "loaging"}
             </button>
           </div>
         </form>
