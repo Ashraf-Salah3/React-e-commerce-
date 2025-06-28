@@ -21,6 +21,23 @@ const ProductList = () => {
   const [products, setProducts] = useState([]);
   const navegate = useNavigate();
 
+    const fetchProduct = (isActive) => {
+    instance
+      .get("/Product", { params: { isActive } })
+      .then((res) => {
+        setProducts(res?.data?.data.items);
+        setActiveTab(
+          isActive === true ? "المنتجات المنشورة" : "المنتجات المجدولة"
+        );
+      })
+      .catch((error) => {
+        toast.error(error.data.message);
+      });
+  };
+  useEffect(() => {
+    fetchProduct(true);
+  }, []);
+
   const deleteProductHandel = async (id) => {
     try {
       const res = await instance.delete(`/Product/${id}`);
@@ -74,22 +91,7 @@ const ProductList = () => {
     doc.save("قائمة_المنتجات.pdf");
   };
 
-  const fetchProduct = (isActive) => {
-    instance
-      .get("/Product", { params: { isActive } })
-      .then((res) => {
-        setProducts(res?.data?.data.items);
-        setActiveTab(
-          isActive === true ? "المنتجات المنشورة" : "المنتجات المجدولة"
-        );
-      })
-      .catch((error) => {
-        toast.error(error.data.message);
-      });
-  };
-  useEffect(() => {
-    fetchProduct(true);
-  }, []);
+
 
   return (
     <div className={styles.productList}>

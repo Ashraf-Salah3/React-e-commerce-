@@ -101,14 +101,7 @@ const EditPublishedProduct = () => {
             onchange={handelInput}
             value={formData.Description}
           />
-          <InputField
-            label="تاريخ الجدولة"
-            id="ScheduleDate"
-            type="date"
-            required
-            onchange={handelInput}
-            value={formData.date}
-          />
+       
             <InputField
               label="الحالة"
               id="IsActive"

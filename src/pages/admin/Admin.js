@@ -29,16 +29,16 @@ const Admin = () => {
   
   const token = localStorage.getItem('authToken');
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    if (!token) {
-      navigate('/login');
-    }
-  }, [token, navigate]); 
+  //   if (!token) {
+  //     navigate('/login');
+  //   }
+  // }, [token, navigate]); 
 
-  if (!token) {
-    return null;
-  }
+  // if (!token) {
+  //   return null;
+  // }
   
 
   return (

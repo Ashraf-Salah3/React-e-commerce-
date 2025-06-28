@@ -35,7 +35,8 @@ export const CategoryProvider = ({ children }) => {
        if(response.status === 200){
       fetchCategory();
        }
-      toast.success("Category added successfully!");
+        toast.success("تم اضافه الفئه بنجاح");
+
     } catch (error) {
       toast.error(`Error adding category: ${error.message}`);
     }
@@ -46,7 +47,8 @@ export const CategoryProvider = ({ children }) => {
       const response = await instance.put(`/Category/${id}`, { name: newName });
       if (response.status === 200) {
         fetchCategory();
-        toast.success("Category updated successfully!");
+           toast.success("تم التعديل بنجاح");
+
       }
     } catch (error) {
       toast.error(`Error updating category: ${error.message}`);
@@ -59,7 +61,8 @@ export const CategoryProvider = ({ children }) => {
       setCategories((prevCategories) =>
         prevCategories.filter((category) => category.id !== categoryId)
       );
-      toast.success("Category deleted successfully!");
+            toast.success("تم الحذف بنجاح");
+
     } catch (error) {
       toast.error(`Error deleting category: ${error.message}`);
     }
@@ -83,7 +86,7 @@ export const CategoryProvider = ({ children }) => {
         return updatedSubCategories;
       });
 
-      toast.success("SubCategory added successfully!");
+      toast.success("تم اضافه الفئه الفرعيه بنجاح");
     } catch (error) {
       toast.error(`Error adding SubCategory: ${error.message}`);
     }
@@ -105,7 +108,7 @@ export const CategoryProvider = ({ children }) => {
           );
           return updatedSubCategories;
         });
-        toast.success("SubCategory updated successfully!");
+        toast.success("تم التعديل بنجاح");
       }
     } catch (error) {
       toast.error(`Error updating SubCategory: ${error.message}`);
@@ -113,14 +116,6 @@ export const CategoryProvider = ({ children }) => {
   };
 
   const deleteSubCategory = async (categoryId, subCategoryId) => {
-    if (!categoryId || !subCategoryId) {
-      toast.error(
-        "Missing categoryId or subCategoryId:",
-        categoryId,
-        subCategoryId
-      );
-      return;
-    }
 
     try {
       await instance.delete(`/SubCategory/${subCategoryId}`);
@@ -131,7 +126,7 @@ export const CategoryProvider = ({ children }) => {
         ].filter((subCategory) => subCategory.id !== subCategoryId);
         return updatedSubCategories;
       });
-      toast.success("SubCategory deleted successfully!");
+      toast.success("تم الحذف بنجاح");
     } catch (error) {
       toast.error(`Error deleting SubCategory: ${error.message}`);
     }

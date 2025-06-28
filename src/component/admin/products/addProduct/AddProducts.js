@@ -121,9 +121,9 @@ const AddProducts = () => {
             },
           }
         );
-        toast.success("تم إضافة المرفقات بنجاح", response.data);
+       
       } catch (error) {
-        toast.error("خطأ في إضافة المرفقات:", error);
+        
       }
     };
 
@@ -264,7 +264,7 @@ const AddProducts = () => {
                   type="file"
                   id="coverImg"
                   onChange={(e) => handleImageChange(e, "coverImg")}
-                  accept=".png, .jpg, .jpeg"
+                  accept="image/*"
                   hidden
                 />
                 <div
@@ -299,7 +299,7 @@ const AddProducts = () => {
                   id="img"
                   multiple
                   onChange={handleImagesChange}
-                  accept=".png, .jpg, .jpeg"
+                  accept="image/*"
                   hidden
                 />
                 <div

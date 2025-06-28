@@ -58,11 +58,11 @@ const App = () => {
         <Route
           path="/admin/*"
           element={
-            localStorage.getItem("authToken") ? (
+            // localStorage.getItem("authToken") ? (
               <Admin />
-            ) : (
-              <Navigate to="/login" replace />
-            )
+            // ) : (
+            //   <Navigate to="/login" replace />
+            // )
           }
         />
         <Route path="/login" element={<Login />} />

@@ -73,7 +73,7 @@ const ProductCard = React.memo(({ product }) => {
             product?.saleDiscount !== null ? styles.descound : styles.desc
           }`}
         >
-          <p>{product.name.slice(0, 15)}</p>
+          <p>{product.name.slice(0, 20)}</p>
           <div className={styles.price}>
             <p className={styles.mainprice}>{product.price} ج.م</p>
             {product?.saleDiscount !== null && (
