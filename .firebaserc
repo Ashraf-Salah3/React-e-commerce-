@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "e-commerce-c9cf7"
-  }
+    "default": "inside-home-afcc1",
+    "build": "inside-home-afcc1"
+  },
+  "targets": {},
+  "etags": {}
 }

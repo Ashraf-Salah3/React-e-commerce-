@@ -14,7 +14,7 @@ const EditProductFeature = () => {
   const { categories } = useFetchCategories();
   const { setProductFilter, productFilter, products, getProductColor, colors } =
     useProducts();
-  
+
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedProduct, setSelectedProduct] = useState("");
   const [coverImg, setCoverImg] = useState(null);
